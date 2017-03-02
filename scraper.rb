@@ -8,7 +8,7 @@ require 'wikidata/fetcher'
 require 'csv'
 
 query = <<QUERY
-SELECT ?item ?itemLabel ?start ?end ?email
+SELECT ?item ?itemLabel ?itemAltLabel ?start ?end ?email
 WHERE
 {
   ?item p:P39 ?position .
