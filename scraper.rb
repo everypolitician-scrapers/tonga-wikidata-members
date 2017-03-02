@@ -8,15 +8,15 @@ require 'wikidata/fetcher'
 require 'csv'
 
 query = <<QUERY
-SELECT ?item ?itemLabel ?start_date ?end_date ?email
+SELECT ?item ?itemLabel ?start ?end ?email
 WHERE
 {
   ?item p:P39 ?position .
     OPTIONAL { ?item wdt:P968 ?email . }
     ?position ps:P39 wd:Q21328621 ;
-          pq:P2937 wd:Q28861051 .
-    OPTIONAL { ?position pq:P580 ?end_date . }
-    OPTIONAL { ?position pq:P582 ?start_date . }
+              pq:P2937 wd:Q28861051 .
+    OPTIONAL { ?position pq:P580 ?start . }
+    OPTIONAL { ?position pq:P582 ?end . }
   SERVICE wikibase:label { bd:serviceParam wikibase:language "en" }
 }
 QUERY
