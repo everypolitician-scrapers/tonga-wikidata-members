@@ -8,7 +8,7 @@ require 'wikidata/fetcher'
 require 'csv'
 
 query = <<QUERY
-SELECT ?item ?itemLabel ?itemAltLabel ?start ?end ?email
+SELECT ?item ?itemLabel ?itemAltLabel ?start ?end ?email ?constituency
 WHERE
 {
   ?item p:P39 ?position .
@@ -17,6 +17,7 @@ WHERE
               pq:P2937 wd:Q28861051 .
     OPTIONAL { ?position pq:P580 ?start . }
     OPTIONAL { ?position pq:P582 ?end . }
+    OPTIONAL { ?position pq:P768 ?constituency . }
   SERVICE wikibase:label { bd:serviceParam wikibase:language "en" }
 }
 QUERY
